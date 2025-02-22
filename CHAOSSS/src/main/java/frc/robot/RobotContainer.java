@@ -6,6 +6,7 @@ package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.subsystems.CoralSubsystem;
+import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
 import frc.robot.subsystems.SwerveSubsystem;
 import swervelib.SwerveInputStream;
@@ -31,10 +32,14 @@ public class RobotContainer {
   private final SwerveSubsystem drivebase = new SwerveSubsystem();
   private final ShooterSubsystem shooterSubsystem = new ShooterSubsystem(); // Add the shooter subsystem
   private final CoralSubsystem CoralSubsystem = new CoralSubsystem(); // Add the coral subsystem
+  private final ElevatorSubsystem elevatorSubsystem = new ElevatorSubsystem(); // Add the elevator subsystem
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandJoystick m_driverController =
       new CommandJoystick(OperatorConstants.kDriverControllerPort);
+
+  private final CommandJoystick m_operatorController =
+      new CommandJoystick(OperatorConstants.kOperatorControllerPort);
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -95,10 +100,15 @@ public class RobotContainer {
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
-
-
-    
+    if (m_operatorController.getHID().getRawButton(5)){
+      elevatorSubsystem.levelUp();
+    } else if (m_operatorController.getHID().getRawButton(6)){
+      elevatorSubsystem.levelDown();
+    }
   }
+
+  
+
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
@@ -106,6 +116,6 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    return drivebase.getAutonomousCommand("New Auto");
+    return drivebase.getAutonomousCommand("right");
   }
 }
