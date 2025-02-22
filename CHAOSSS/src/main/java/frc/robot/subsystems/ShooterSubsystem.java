@@ -18,7 +18,7 @@ public class ShooterSubsystem {
     public void stopShooter() {
         shooterMotor.set(ControlMode.PercentOutput, 0); // Stop the shooter motor
     }
-    public Command shootBall() {
+    public Command ShootBall() {
         return new Command() {
             @Override
             public void initialize() {

@@ -45,8 +45,8 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
 
-    NamedCommands.registerCommand("shoot", shooterSubsystem.shootBall());
-    NamedCommands.registerCommand("coral", CoralSubsystem.coralDrop());
+    NamedCommands.registerCommand("shoot", shooterSubsystem.ShootBall());
+    NamedCommands.registerCommand("coral", CoralSubsystem.CoralDrop());
     // Configure the trigger bindings
     configureBindings();
     drivebase.setDefaultCommand(!RobotBase.isSimulation() ? driveFieldOrientedAngularVelocity : driveFieldOrientedDirectAngleSim);
@@ -104,6 +104,18 @@ public class RobotContainer {
       elevatorSubsystem.levelUp();
     } else if (m_operatorController.getHID().getRawButton(6)){
       elevatorSubsystem.levelDown();
+    }
+
+    if (m_operatorController.getHID().getRawButton(7)){
+      CoralSubsystem.coralDrop(0.8);
+    } else if (m_operatorController.getHID().getRawButton(8)){
+      CoralSubsystem.coralDrop(-0.8);;
+    }
+
+    if (m_operatorController.getHID().getRawButton(8)){
+      shooterSubsystem.shootBall(0.8);
+    } else if (m_operatorController.getHID().getRawButton(9)){
+      shooterSubsystem.shootBall(-0.8);
     }
   }
 

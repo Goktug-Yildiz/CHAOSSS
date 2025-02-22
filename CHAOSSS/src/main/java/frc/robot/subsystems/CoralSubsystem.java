@@ -19,7 +19,7 @@ public class CoralSubsystem {
         coralMotor.set(ControlMode.PercentOutput, 0); // Stop the coral motor
     }
 
-    public Command coralDrop(){
+    public Command CoralDrop(){
         return new Command(){
             @Override
             public void initialize(){
