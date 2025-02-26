@@ -24,10 +24,9 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
  * subsystems, commands, and trigger mappings) should be declared here.
  */
-public class RobotContainer {
 
- 
-  
+
+public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final SwerveSubsystem drivebase = new SwerveSubsystem();
   private final ShooterSubsystem shooterSubsystem = new ShooterSubsystem(); // Add the shooter subsystem
@@ -72,8 +71,8 @@ public class RobotContainer {
 
   // SIMULASYON
   SwerveInputStream driveAngularVelocitySim = SwerveInputStream.of(drivebase.getSwerveDrive(),
-                                                                                          () -> -m_driverController.getRawAxis(1), // Left Y axis
-                                                                                          () -> -m_driverController.getRawAxis(0)) // Left X axis
+                                                                                          () -> m_driverController.getRawAxis(1), // Left Y axis
+                                                                                          () -> m_driverController.getRawAxis(0)) // Left X axis
                                                                                           .withControllerRotationAxis(() -> m_driverController.getRawAxis(2)) 
                                                                                           .deadband(OperatorConstants.DEADBAND)
                                                                                           .scaleTranslation(0.8)
@@ -128,6 +127,6 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    return drivebase.getAutonomousCommand("right");
+    return drivebase.getAutonomousCommand("left");
   }
 }

@@ -20,5 +20,5 @@ public final class Constants {
     public static final int kOperatorControllerPort = 1;
     public static final double DEADBAND = 0.05;
   }
-  public static final double maximumSpeed = Units.feetToMeters(6.6);
+  public static final double maximumSpeed = 4.5;
 }

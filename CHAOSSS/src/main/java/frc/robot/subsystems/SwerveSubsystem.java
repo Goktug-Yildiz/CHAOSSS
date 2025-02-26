@@ -15,7 +15,11 @@ import java.util.function.Supplier;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Filesystem;
+import edu.wpi.first.wpilibj.smartdashboard.Mechanism2d;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import swervelib.parser.SwerveParser;
+import swervelib.telemetry.SwerveDriveTelemetry;
+import swervelib.telemetry.SwerveDriveTelemetry.TelemetryVerbosity;
 import swervelib.SwerveDrive;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -29,12 +33,18 @@ import com.pathplanner.lib.controllers.PPHolonomicDriveController;
 import com.pathplanner.lib.path.PathPlannerPath;
 
 public class SwerveSubsystem extends SubsystemBase {
-  /** Creates a new ExampleSubsystem. */
+
 
   File directory = new File(Filesystem.getDeployDirectory(),"swerve");
   SwerveDrive  swerveDrive;
 
   public SwerveSubsystem() {
+
+    Mechanism2d mechanism = new Mechanism2d(3, 3);
+    SmartDashboard.putData("MyMechanism", mechanism);
+
+    SwerveDriveTelemetry.verbosity = TelemetryVerbosity.HIGH;
+
     try {
       // Ensure that each motor controller has a unique device ID
       swerveDrive = new SwerveParser(directory).createSwerveDrive(Constants.maximumSpeed,
