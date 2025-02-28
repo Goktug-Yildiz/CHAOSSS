@@ -7,7 +7,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "right start"
+            "pathName": "New Path"
           }
         },
         {
@@ -25,7 +25,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "right end"
+            "pathName": "New New Path"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "New New New Path"
           }
         },
         {

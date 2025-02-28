@@ -5,9 +5,10 @@
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
-import frc.robot.subsystems.CoralSubsystem;
+/* import frc.robot.subsystems.CoralSubsystem;
 import frc.robot.subsystems.ElevatorSubsystem;
-import frc.robot.subsystems.ShooterSubsystem;
+import frc.robot.subsystems.MotorStopSubsystem;
+import frc.robot.subsystems.ShooterSubsystem; */
 import frc.robot.subsystems.SwerveSubsystem;
 import swervelib.SwerveInputStream;
 
@@ -29,9 +30,10 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final SwerveSubsystem drivebase = new SwerveSubsystem();
-  private final ShooterSubsystem shooterSubsystem = new ShooterSubsystem(); // Add the shooter subsystem
+  /* private final ShooterSubsystem shooterSubsystem = new ShooterSubsystem(); // Add the shooter subsystem
   private final CoralSubsystem CoralSubsystem = new CoralSubsystem(); // Add the coral subsystem
   private final ElevatorSubsystem elevatorSubsystem = new ElevatorSubsystem(); // Add the elevator subsystem
+  private final MotorStopSubsystem motorStopSubsystem = new MotorStopSubsystem(); // Add the motor stop subsystem */
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandJoystick m_driverController =
@@ -43,9 +45,8 @@ public class RobotContainer {
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-
-    NamedCommands.registerCommand("shoot", shooterSubsystem.ShootBall());
-    NamedCommands.registerCommand("coral", CoralSubsystem.CoralDrop());
+    /* NamedCommands.registerCommand("shoot", shooterSubsystem.ShootBall());
+    NamedCommands.registerCommand("coral", CoralSubsystem.CoralDrop()); */
     // Configure the trigger bindings
     configureBindings();
     drivebase.setDefaultCommand(!RobotBase.isSimulation() ? driveFieldOrientedAngularVelocity : driveFieldOrientedDirectAngleSim);
@@ -99,7 +100,7 @@ public class RobotContainer {
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
-    if (m_operatorController.getHID().getRawButton(5)){
+/*     if (m_operatorController.getHID().getRawButton(5)){
       elevatorSubsystem.levelUp();
     } else if (m_operatorController.getHID().getRawButton(6)){
       elevatorSubsystem.levelDown();
@@ -115,9 +116,8 @@ public class RobotContainer {
       shooterSubsystem.shootBall(0.8);
     } else if (m_operatorController.getHID().getRawButton(9)){
       shooterSubsystem.shootBall(-0.8);
-    }
+    } */
   }
-
   
 
 
@@ -127,6 +127,6 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    return drivebase.getAutonomousCommand("left");
+    return drivebase.getAutonomousCommand("right");
   }
 }

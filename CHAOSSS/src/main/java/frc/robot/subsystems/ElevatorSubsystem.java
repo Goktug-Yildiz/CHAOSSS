@@ -1,4 +1,4 @@
-package frc.robot.subsystems;
+/* package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.Timer;
 
 public class ElevatorSubsystem {
     
-    private final TalonSRX elevatorMotor = new TalonSRX(17);
+    private final TalonSRX elevatorMotor = new TalonSRX(19);
     private final Timer timer = new Timer();
 
     private final double LEVEL_MOVE_TIME = 2.0;
@@ -40,3 +40,4 @@ public class ElevatorSubsystem {
         System.out.println("Elevator leveled down.");
     }
 }
+ */

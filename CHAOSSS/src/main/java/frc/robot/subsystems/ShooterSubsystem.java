@@ -1,4 +1,4 @@
-package frc.robot.subsystems;
+/* package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
@@ -8,7 +8,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 public class ShooterSubsystem {
     private final VictorSPX
 
-    shooterMotor = new VictorSPX(15);
+    shooterMotor = new VictorSPX(18);
 
     public void shootBall(double speed){
         shooterMotor.set(ControlMode.PercentOutput, speed);
@@ -33,3 +33,4 @@ public class ShooterSubsystem {
         };
     }
 }
+ */

@@ -1,4 +1,4 @@
-package frc.robot.subsystems;
+/* package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
@@ -8,7 +8,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 public class CoralSubsystem {
     private final VictorSPX
 
-    coralMotor = new VictorSPX(16);
+    coralMotor = new VictorSPX(17);
 
     public void coralDrop(double speed){
         coralMotor.set(ControlMode.PercentOutput, speed);
@@ -33,3 +33,4 @@ public class CoralSubsystem {
         };
     }
 }
+ */

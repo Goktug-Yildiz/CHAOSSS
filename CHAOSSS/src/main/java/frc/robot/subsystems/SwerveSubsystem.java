@@ -40,10 +40,8 @@ public class SwerveSubsystem extends SubsystemBase {
 
   public SwerveSubsystem() {
 
-    Mechanism2d mechanism = new Mechanism2d(3, 3);
-    SmartDashboard.putData("MyMechanism", mechanism);
 
-    SwerveDriveTelemetry.verbosity = TelemetryVerbosity.HIGH;
+    /* SwerveDriveTelemetry.verbosity = TelemetryVerbosity.HIGH; */
 
     try {
       // Ensure that each motor controller has a unique device ID
